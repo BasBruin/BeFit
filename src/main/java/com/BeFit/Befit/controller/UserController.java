@@ -1,28 +1,27 @@
 package com.BeFit.Befit.controller;
 
 import com.BeFit.Befit.model.User;
-import com.BeFit.Befit.service.UserService;
+import com.BeFit.Befit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
 @CrossOrigin
+@RequestMapping("/Gymmember")
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
     @PostMapping("/add")
-    public String add(@RequestBody User user){
-        userService.saveUser(user);
-        return "User has been added";
+    User newUser(@RequestBody User gymMember){
+        return userRepository.save(gymMember);
     }
 
     @GetMapping("/getAll")
-    public List<User> list() {
-        return userService.getAllUsers();
+    List<User> getallUsers() {
+        return userRepository.findAll();
     }
 }
