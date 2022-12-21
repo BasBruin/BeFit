@@ -38,6 +38,6 @@ jobs:
         image: basbruin/backendbefit
         tags: latest-user
         registry: docker.io
-        dockerfile: Befit/Dockerfile
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
