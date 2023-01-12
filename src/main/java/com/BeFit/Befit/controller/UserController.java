@@ -36,4 +36,14 @@ public class UserController {
     List<User> getallUsers() {
         return userRepository.findAll();
     }
+
+    @DeleteMapping("/Delete/{id}")
+    void DeleteUser(@PathVariable int id){
+        userRepository.delete(userRepository.findById(id).orElse(null));
+    }
+
+    @PatchMapping("/Update")
+    User UpdateUser(@RequestBody User user){
+        return userRepository.save(user);
+    }
 }
