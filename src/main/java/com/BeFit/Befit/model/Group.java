@@ -11,11 +11,6 @@ public class Group {
     private String GroupName;
     private String Description;
 
-
-    @OneToMany(targetEntity = User.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Gymmember_fk", referencedColumnName = "ID")
-    private List<User> Groupmembers;
-
     public Group() {
     }
 }
