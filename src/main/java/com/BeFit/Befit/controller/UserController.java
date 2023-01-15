@@ -21,9 +21,10 @@ public class UserController {
 
 
 
-    @GetMapping("/getAll")
-    List<User> getallUsers() {
-        return userRepository.findAll();
+    @GetMapping("/get/{id}")
+    User getUser(@PathVariable int id) {
+        User user = userRepository.findById(id).orElse(null);
+        return  user;
     }
 
     @DeleteMapping("/Delete/{id}")
